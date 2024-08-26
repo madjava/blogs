@@ -12,128 +12,275 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;50
   @import url("#{$web-font-path}");
 }
 
-// Navbar
+// // Navbar
 
-.navbar {
-  font-family: $headings-font-family;
-}
+// .navbar {
+//   font-family: $headings-font-family;
+// }
+
+// // Buttons
+
+// .btn {
+//   font-family: $headings-font-family;
+
+//   &,
+//   &:hover {
+//     color: $white;
+//   }
+
+//   &-light,
+//   &-light:hover {
+//     color: $gray-700;
+//   }
+
+//   &-link,
+//   &-link:hover {
+//     color: $primary;
+//   }
+
+//   &-link.disabled:hover {
+//     color: $gray-600;
+//   }
+
+//   &-outline-primary {
+//     color: $primary;
+//   }
+
+//   &-outline-secondary {
+//     color: $secondary;
+//   }
+
+//   &-outline-success {
+//     color: $success;
+//   }
+
+//   &-outline-info {
+//     color: $info;
+//   }
+
+//   &-outline-warning {
+//     color: $warning;
+//   }
+
+//   &-outline-danger {
+//     color: $danger;
+//   }
+
+//   &-outline-dark {
+//     color: $dark;
+//   }
+
+//   &-outline-light {
+//     color: $light;
+//   }
+// }
+
+// // Forms
+
+// legend {
+//   font-family: $headings-font-family;
+// }
+
+// // Navs
+
+// .dropdown-menu {
+//   font-family: $font-family-sans-serif;
+// }
+
+// .breadcrumb {
+//   a {
+//     color: $navbar-dark-color;
+//   }
+
+//   a:hover {
+//     color: $white;
+//     text-decoration: none;
+//   }
+// }
+
+// // Indicators
+
+// .alert {
+//   a,
+//   .alert-link {
+//     color: $white;
+//   }
+
+//   &-light {
+
+//     &,
+//     a:not(.btn),
+//     .alert-link {
+//       color: $body-color;
+//     }
+//   }
+// }
+
+// .badge {
+//   color: $white;
+
+//   &.bg-light {
+//     color: $gray-700;
+//   }
+// }
+
+// // Containers
+
+// .card,
+// .list-group-item {
+//   h1,
+//   h2,
+//   h3,
+//   h4,
+//   h5,
+//   h6 {
+//     color: inherit;
+//   }
+// }
+
+
+// Pulse 5.3.3
+// Bootswatch
+
+
+// Variables
 
 // Buttons
 
 .btn {
-  font-family: $headings-font-family;
+  &:focus,
+  &:active,
+  &:active:focus,
+  &.active:focus {
+    outline: none;
+  }
 
-  &,
-  &:hover {
+  &-secondary {
+    color: $gray-900;
+    background-color: $white;
+    border-color: #ccc;
+
+    &:hover {
+      color: $gray-900;
+      background-color: $gray-300;
+      border-color: $gray-500;
+    }
+
+    &.disabled {
+      color: tint-color($gray-900, 5%);
+      background-color: $white;
+      border-color: tint-color(#ccc, 5%);
+    }
+  }
+
+  &-warning {
     color: $white;
   }
 
-  &-light,
-  &-light:hover {
-    color: $gray-700;
+  &-primary:focus {
+    box-shadow: 0 0 5px tint-color($primary, 10%);
   }
 
-  &-link,
-  &-link:hover {
-    color: $primary;
+  &-secondary:focus {
+    box-shadow: 0 0 5px $gray-400;
   }
 
-  &-link.disabled:hover {
-    color: $gray-600;
+  &-success:focus {
+    box-shadow: 0 0 5px tint-color($success, 10%);
   }
 
-  &-outline-primary {
-    color: $primary;
+  &-info:focus {
+    box-shadow: 0 0 5px tint-color($info, 10%);
   }
 
-  &-outline-secondary {
-    color: $secondary;
+  &-warning:focus {
+    box-shadow: 0 0 5px tint-color($warning, 10%);
   }
 
-  &-outline-success {
-    color: $success;
+  &-danger:focus {
+    box-shadow: 0 0 5px tint-color($danger, 10%);
   }
 
-  &-outline-info {
-    color: $info;
+  &.disabled:focus {
+    box-shadow: none;
   }
+}
 
-  &-outline-warning {
-    color: $warning;
-  }
+// Tables
 
-  &-outline-danger {
-    color: $danger;
-  }
-
-  &-outline-dark {
-    color: $dark;
-  }
-
-  &-outline-light {
-    color: $light;
-  }
+.table .thead-dark th {
+  background-color: $secondary;
+  border-color: $table-border-color;
 }
 
 // Forms
 
-legend {
-  font-family: $headings-font-family;
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(100, 65, 164, .4);
 }
 
 // Navs
 
-.dropdown-menu {
-  font-family: $font-family-sans-serif;
+.nav-tabs {
+  .nav-link,
+  .nav-link.active, {
+    border-width: 0 0 1px;
+  }
+
+  .nav-link:hover,
+  .nav-link.active,
+  .nav-link.active:hover,
+  .nav-link.active:focus {
+    border-bottom: 1px solid $primary;
+  }
+
+  .nav-item + .nav-item {
+    margin-left: 0;
+  }
 }
 
 .breadcrumb {
-  a {
-    color: $navbar-dark-color;
-  }
-
-  a:hover {
-    color: $white;
-    text-decoration: none;
+  &-item.active {
+    color: $gray-700;
   }
 }
 
 // Indicators
 
-.alert {
-  a,
-  .alert-link {
-    color: $white;
-  }
-
-  &-light {
-
-    &,
-    a:not(.btn),
-    .alert-link {
-      color: $body-color;
-    }
+.badge {
+  &.bg-light {
+    color: $dark;
   }
 }
 
-.badge {
-  color: $white;
+// Progress bars
 
-  &.bg-light {
-    color: $gray-700;
-  }
+.progress {
+  height: 8px;
 }
 
 // Containers
 
-.card,
-.list-group-item {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: inherit;
+.list-group {
+  &-item {
+    color: rgba(255, 255, 255, .8);
+
+    &.active,
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+
+    &.active {
+      font-weight: 700;
+
+      &:hover {
+        background-color: $list-group-hover-bg;
+      }
+    }
+
+    &.disabled:hover {
+      color: $list-group-disabled-color;
+    }
   }
 }
