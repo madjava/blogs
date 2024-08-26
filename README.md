@@ -1,5 +1,5 @@
 
-# EYEOPS BlOGS
+# EYEOPS BLOGS
 
 Technical blogs and others content.
 
