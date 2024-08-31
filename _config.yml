@@ -18,10 +18,12 @@ email: ""
 description: >- # this means to ignore newlines until "baseurl:"
   Cloud Technology blogs and others.
 long_description: >-
-  Technical blogs covering various cloud technology areas as well as other ideas around team building, communication and collaboration.
+  Technical blogs covering various cloud technology areas, some projects and other ideas around collaboration and team building.
 baseurl: "/blogs" # the subpath of your site, e.g. /blog
 url: "https://madjava.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
+linkedin_url: https://www.linkedin.com/in/eyetanfelix/
+github_url: https://github.com/madjava/
 github_username: madjava
 repository: "madjava/blogs"
 author: Felix Eyetan
@@ -29,6 +31,7 @@ author: Felix Eyetan
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 # A list of the pages to display in the navigation bar
 header_pages:
 # Exclude from processing.
@@ -39,3 +42,5 @@ exclude:
   - Gemfile.lock
   - node_modules
   - update_boostrap.sh
+  - "content-todos.todo.txt"
+  - "content-ideas.todo.txt"

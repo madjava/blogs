@@ -3,12 +3,73 @@ layout: home
 title: EyeOps
 ---
 
-<div class="h-100 d-flex flex-column align-items-center justify-content-center">
+<div class="h-100 d-flex flex-column align-items-center justify-content-center mt-5 pt-5">
   <div class="flex-column">
-    <image src="./assets/images/event.png" width="350px" alt="Felix Eyetan">
+    <image src="./assets/images/event.png" width="150px" alt="Felix Eyetan" class="animated">
   </div>
-  <div class="flex-column mt-4 text-center font-italic"><i>Blog contents upcoming soon! 📝</i></div>
+  <div class="flex-column mt-4 text-center">
+    <h1 class="title">Felix Eyetan</h1>
+  </div>
+  <div class="flex-column mt-2 text-center description">
+    <span>Architecture</span> | 
+    <span>IaC</span> |
+    <span>Networking</span> | 
+    <span>Team Work</span> 
+  </div>
+  <div class="flex-row mt-3 text-center">
+    <div class="d-inline m-2"><a href="{{ site.linkedin_url }}" target="_blank" class="fa fa-linkedin"></a></div>
+    <div class="d-inline m-2"><a href="{{ site.github_url }}" target="_blank" class="fa fa-github"></a></div>
+  </div>
+  <div class="flex-column mt-4 mb-4 text-center" style="width: 50%;">
+    <p>{{- site.long_description | escape -}}</p>
+  </div>
+  <div class="flex-column mt-2 text-center main-content">
+    <span class="d-inline m-2"><a href="#" class="link">Blogs</a></span>
+    <span class="d-inline m-2"><a href="#" class="link">Projects</a></span>
+    <span class="d-inline m-2"><a href="#" class="link">About</a></span>
+  </div>
 </div>
+<style>
+  .main-content {
+    span {
+      font-size: 1.5rem;
+    }
+  }
+  .link {
+            font-size: 1.5rem;
+            padding: 7px 15px;
+            margin: 0;
+            border-radius: 4%;
+            transition: all .4s ease-in-out;
+            text-decoration: none;
+            font-weight: lighter;
+      }
+  .title {
+    font-size: 2.3rem;
+    color: black;
+  }
 
+  .fa {
+    font-size: 1.8em;
+    text-align: center;
+    text-decoration: none;
+  }
 
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.7;
+  }
 
+  .description {
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-style: normal;
+    color: #aaa;
+    margin: 0 auto 30px;
+
+    span {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+</style>
