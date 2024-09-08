@@ -20,6 +20,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 long_description: >-
   Technical blogs covering various cloud technology areas, some projects and other ideas around collaboration and team building.
 baseurl: "/blogs" # the subpath of your site, e.g. /blog
+# paginate: 2
 url: "https://madjava.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 linkedin_url: https://www.linkedin.com/in/eyetanfelix/

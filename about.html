@@ -1,0 +1,45 @@
+---
+layout: home
+---
+
+<div class="h-100 d-flex flex-column align-items-center justify-content-center mt-5 pt-5">
+  <div class="flex-column">
+    <image src="./assets/images/event.png" width="150px" alt="Felix Eyetan" class="animated">
+  </div>
+  <div class="flex-column mt-4 text-center">
+    <h1 class="title">Felix Eyetan</h1>
+  </div>
+  <div class="flex-column mt-2 text-center description">
+    <span>Architecture</span> | <span>IaC</span> | <span>Team Work</span> 
+  </div>
+  <div class="flex-row mt-3 text-center">
+    <div class="d-inline m-2"><a href="{{ site.linkedin_url }}" target="_blank" class="fa fa-linkedin"></a></div>
+    <div class="d-inline m-2"><a href="{{ site.github_url }}" target="_blank" class="fa fa-github"></a></div>
+  </div>
+  <div class="flex-column mt-4 mb-4 text-center" style="width: 60%;">
+    <div>
+      <p>
+      With  experience in cloud platform engineering and architecture and also leading engineering teams,
+      I love to work in Agile environments with a colaborative team of engineers, sharing knowlegde, experience and learning together.
+    </p>
+    <p>
+      I appreciate all things IaC using Terraform and always rooting for proper CI/CD. 
+      I value technical documentation and knowledge transfer and always delighted to support junior engineers on a team.
+    </p>
+    <p>
+      My core cloud technology space is Microsoft Azure but have workerd with Amazon Web Services (AWS) for a bit. Looking to familiarize myself
+      with Google Cloud Platform (GCP) and IBM Cloud and currently delving into cloud security and a little bit of cloud cost optimisation.
+    </p>
+    </div>
+  </div>
+  <div class="flex-column mt-2 text-center main-content">
+    {% if item.name != "About" %}
+     <span class="d-inline m-2"><a href="./index.html" class="link">Home</a></span>
+    {% endif %}
+    {% for item in site.data.navigation %}
+      {% if item.name != "About" %}
+        <span class="d-inline m-2"><a href="{{ item.link }}" class="link">{{ item.name }}</a></span>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
