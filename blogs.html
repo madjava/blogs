@@ -1,5 +1,6 @@
 ---
 layout: home
+title: Blogs
 ---
 
 <div class="h-100 d-flex flex-column align-items-center justify-content-center mt-5 pt-5">
@@ -16,12 +17,11 @@ layout: home
     <div class="d-inline m-2"><a href="{{ site.linkedin_url }}" target="_blank" class="fa fa-linkedin"></a></div>
     <div class="d-inline m-2"><a href="{{ site.github_url }}" target="_blank" class="fa fa-github"></a></div>
   </div>
-  <div class="flex-column mt-4 mb-4 text-center" style="width: 50%;">
-    <p>{{- site.long_description | escape -}}</p>
+  <div class="container mt-4 mb-4 text-left" style="width: 50%;">
+      {% for post in site.posts %}
+        <div class="row mt-1 mb-1"><a href="/blogs{{ post.url }}">{{ post.title }}</a></div>
+      {% endfor %}
   </div>
-  <div class="flex-column mt-2 text-center main-content">
-    {% for item in site.data.navigation %}
-      <span class="d-inline m-2"><a href="{{ item.link }}" class="link">{{ item.name }}</a></span>
-    {% endfor %}
-  </div>
+  
 </div>
+
