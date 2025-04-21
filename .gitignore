@@ -6,3 +6,4 @@ Gemfile.lock
 *.todo.txt
 .DS_Store
 .idea
+*/.DS_Store
