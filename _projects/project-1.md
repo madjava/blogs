@@ -1,13 +1,13 @@
 ---
-layout: post
+layout: page
 author: Felix Eyetan
-title: Blog content coming soon
+title: Projects coming soon
 level: Intermidiate
-is_blog: true
+is_project: true
 ---
 Thanks for visiting my new blog.
 
-I am currently writing up new content and would be releasing them soon.
+I am currently developing new project and would be releasing them soon.
 
 Please check back again sometime soon.
 
