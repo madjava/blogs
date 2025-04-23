@@ -3,9 +3,9 @@
   {%- if page.title -%}
     <div class="d-flex flex-row justify-content-end m-2">
        <div class="p-1"><a href="{{ site.url }}/blogs/index.html" class="link">Home</a></div>
-       {%- if page.is_blog == false -%}
+       {%- if page.title == "Blogs"-%}
          <div class="p-1"><a href="{{ site.url }}/blogs/projects.html" class="link">Projects</a></div>
-       {%- elsif page.is_blog == true -%}
+       {%- elsif page.title == "Projects" or page.is_blog == true -%}
          <div class="p-1"><a href="{{ site.url }}/blogs/blogs.html" class="link">Blogs</a></div>
        {%- endif -%}
        <div class="p-1"><a href="{{ site.url }}/blogs/about.html" class="link">About</a></div>
