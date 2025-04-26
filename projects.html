@@ -17,11 +17,10 @@ title: Blogs
     <div class="d-inline m-2"><a href="{{ site.linkedin_url }}" target="_blank" class="fa fa-linkedin"></a></div>
     <div class="d-inline m-2"><a href="{{ site.github_url }}" target="_blank" class="fa fa-github"></a></div>
   </div>
-  <div class="container mt-4 mb-4 text-left" style="width: 50%;">
-      {% for post in site.projects %}
-        <div class="row mt-1 mb-1"><a href="/blogs{{ post.url }}">{{ post.title }}</a></div>
-      {% endfor %}
-  </div>
   
+  <div class="container mt-4 mb-4 text-left" style="width: 50%;">
+      {% include page_lister.html dir="/projects/" %}
+  </div>
+
 </div>
 
