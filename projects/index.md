@@ -8,7 +8,7 @@ is_blog: false
 ---
 Thanks for visiting my projects page.
 
-I am currently developing new project and would be releasing them soon.
+I am currently developing new projects and would be releasing them soon.
 
 Please check back again sometime soon.
 
