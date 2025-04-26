@@ -3,7 +3,7 @@ layout: page
 author: Felix Eyetan
 title: Projects coming soon
 level: Intermidiate
-is_project: true
+is_blog: false
 ---
 Thanks for visiting my new blog.
 
