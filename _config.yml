@@ -45,3 +45,7 @@ exclude:
   - update_boostrap.sh
   - "content-todos.todo.txt"
   - "content-ideas.todo.txt"
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
