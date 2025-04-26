@@ -5,7 +5,7 @@ title: Projects coming soon
 level: Intermidiate
 is_blog: false
 ---
-Thanks for visiting my new blog.
+Thanks for visiting my projects page.
 
 I am currently developing new project and would be releasing them soon.
 
