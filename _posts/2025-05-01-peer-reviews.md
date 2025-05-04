@@ -6,8 +6,6 @@ level: Beginner
 is_blog: true
 ---
 
-# Introduction
-
 Code reviews are methodical assessments of code designed to identify bugs or errors, increase code quality, and help developers and engineers learn the source code.
 
 PRs can also serve as a learning tool or a means of documentation. As not everyone in working on the same Initiative or deliverables at the same time, the opportunity to review another team members code give you the opportunity to be in the know of whats happening on the project.

@@ -6,21 +6,19 @@ level: Beginner
 is_blog: true
 ---
 
-# Simple ways to use Git
-
-## Assumptions
+<h3>Assumptions</h3>
 
 - You have Git [installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your local machine
 - You have either a [GitHub](https://github.com/) or [BitBucket](https://bitbucket.org/) account.
 - You have a terminal tool or an [IDE](https://www.geeksforgeeks.org/what-is-ide/) that provided one
   - [iTerm](https://bitbucket.org/) is nice if using a Mac
 
-## What is Git
+<h3>What is Git</h3>
 
 [Git](https://git-scm.com/) is a fast and modern implementation of version control. It provides a history of content
 changes and facilitates collaborative changes to files.
 
-## Why do I need Git
+<h3>Why do I need Git<h3>
 
 - Fast and easy to setup and learn
 - Locally enable and distributed
@@ -29,7 +27,7 @@ changes and facilitates collaborative changes to files.
 - Lots of tools, features and documentation
 - A large community of users
 
-## Git is not GitHub
+<h3>Git is not GitHub</h3>
 
 👉🏽 **Git** is a version control system that let's you manage and keep track of your source code history.
 
@@ -37,9 +35,9 @@ changes and facilitates collaborative changes to files.
 
 If you have open-source projects that use Git, then GitHub is designed to help you better manage them.
 
-## The Basics - Setting up
+<h3>The Basics - Setting up</h3>
 
-### Creating a Git repository
+<h4>Creating a Git repository</h4>
 
 ```cmd
 git init 
@@ -64,18 +62,16 @@ git clone <REMOTE_URL>
 You will notice a new folder in the location you executed the command from.
 
 <details>
-
    <summary>🏋🏽‍♀️ Setting up exercises</summary>
-
-   #### Exercise 1
+   <strong>Exercise 1</strong>
 
    Create a folder called `simple-git` and navigate into it
 
-   ```
+   ```cmd
    mkdir simple-git && cd simple-git
    ```
 
-   ```
+   ```cmd
    > mkdir lab1 && cd lab1
    > git init # to setup a new repo
    > echo "First file and content" >> first.txt
@@ -87,13 +83,13 @@ You will notice a new folder in the location you executed the command from.
    In the `simple-git` folder, create a new repo on your GitHub account called `lab2`. The from another folder execute the below commands
 
 
-   ```
+   ```cmd
    > git clone git@github.com:<your-github-account>/lab2.git
    ```
 
    if you have setup a git token and ssl or
 
-   ```
+   ```cmd
    > git clone https://github.com/<your-github-account>/lab2.git
    ```
 
@@ -108,7 +104,8 @@ simple-git
 
 </details>
 
-### Synching your git repo
+
+<h4>Synching your git repo</h4>
 
 If you already have a local git repo by [initialing](#creating-a-git-repository) git locally, you can point it (connect it) to an existing remote repo.
 
@@ -127,38 +124,34 @@ git checkout <REMOTE_URL>
 Your local repo will now point to your remove repo, meaning when you push changes the remote repo will get those changes.
 
 <details>
-   
-   #### Exercise 2
-
+   <strong>Exercise 2</strong>
    <summary>🏋🏽‍♀️ Synching your git repo</summary>
 
    You could try this out by deleting the `lab2` folder from [exercise 1](#exercise-1)
 
    The run the following commands from the `simple-git` folder
    
-   ```
+   ```cmd
    mkdir lab2 && git init
    ```
 
    This will initialise a `git` locally then point that to the remove repo using commands above.
 
-   ```
+   ```cmd
    git remote add origin https://github.com/<your-github-account>/lab2.git
    ```
-  
-   
 </details>
 
 
 _**Note:** Watch out for discrepancies aka `merge` conflicts if files already exists in either repositories. You may have to take further [actions](#merging-rebasing-and-reverting) to resolve them_
 
-## Branching and Switching
+<h3>Branching and Switching</h3>
 
 A branch represents an independent line of development, like a silo. When working in collaboration with others, you create a branch, a copy of the project, where you can experiment with your ideas make change and not affect the main body of work.
 
 You may also invite collaborators to review your work on your branch where contributions will be added to it and reviews received.
 
-### Creating a branch
+<h4>Creating a branch</h4>
 
 ```cmd
 git branch <branch-name> 
@@ -174,7 +167,7 @@ git checkout -b <new-branch>
 git checkout -b <new-branch> <existing-branch>
 ```
 
-### Switching branches
+<h4>Switching branches</h4>
 
 ```cmd
 git fetch –all
@@ -186,7 +179,7 @@ _Optional, but sometimes useful, especially in large projects. This updates your
 git checkout <branch-name>
 ```
 
-### Renaming a branch
+<h4>Renaming a branch</h4>
 
 While on the branch you can change it's name like so,
 
@@ -194,7 +187,7 @@ While on the branch you can change it's name like so,
 git branch -m <new-branch-name>
 ```
 
-### Deleting branches
+<h4>Deleting branches</h4>
 
 There are various ways to delete a branch, both a local copy and a remote copy.
 
@@ -217,59 +210,59 @@ git push origin :<branch-name>
 _Note: Deleting it locally does not "delete" the branch, it still exists on the remote server until you `push` your changes out, thread with caution._
 
 <details>
-   
-   #### Exercise 3
 
+   <strong>Exercise 3</strong>
    <summary>🏋🏽‍♀️ Branching, Switching and Deleting</summary>
 
    Navigate to `lab1` folder as described in [exercise 1](#exercise-1)
 
    Execute the following commands.
 
-  ```
-  > git branch branch-a
-  > git checkout branch-a
-  > echo "branch-a first file and content" >> file1-a.txt
-  > git add .
-  > git commit -m "My first commit on branch a"
-  ```
+   ```cmd
+   > git branch branch-a
+   > git checkout branch-a
+   > echo "branch-a first file and content" >> file1-a.txt
+   > git add .
+   > git commit -m "My first commit on branch a"
+   ```
 
   Create and checkout at the same time
   
-  ```
+  ```cmd
   > git checkout -b branch-b
   > echo "branch-b first file and content" >> file1-b.txt
   > git add .
   ```
 
-Create a branch from an existing branch
+  Create a branch from an existing branch
 
-  ```
+  ```cmd
   > git checkout -b branch-a branch-c
   ```
 
-Delete the new branch created
+  Delete the new branch created
 
-```
-> git branch -d branch-c
-> git branch -d branch-b 
-```
+  ```cmd
+  > git branch -d branch-c
+  > git branch -d branch-b 
+  ```
 
-Deleting `branch-b` will fail, to force delete
+  Deleting `branch-b` will fail, to force delete
 
-```
-> git branch -D branch-b
-```
+  ```cmd
+  > git branch -D branch-b
+  ```
 
 </details>   
 
-## Committing, Amending and Pushing changes
+
+<h3>Committing, Amending and Pushing changes</h3>
 
 Commits can be thought of as snapshots or milestones along the timeline of a Git project.
 
 Used when you want to capture the state of changes to the project or mark milestones as the work evolves.
 
-### Adding new files
+<h4>Adding new files</h4>
 
 Before there is anything to commit, you need to add the any changes or files to git. Essentially what this does is that it notifies git to "keep track" of changes to the file.
 
@@ -287,7 +280,7 @@ This adds every file change in current directory.
 
 Key word here is `current` directory. If you have made a repo that has many parent and child folders and you make changes in multiple places then you either have to jump to each folder and run the above command or jump to the parent directory and add all.
 
-### Committing changes
+<h4>Committing changes</h4>
 
 When you have changes or have reached a point you want to "mark", then its a good time to `commit` your changes after you have [added](#adding-new-files) them.
 
@@ -307,7 +300,7 @@ git commit –am “your descriptive but brief commit message”
 
 If file has already been [staged](#adding-new-files), you can skip the `add` commands and just use the `-am` flag, this is a short cut to both `add` the file and add a commit message as above.
 
-### Amending commits
+<h4>Amending commits</h4>
 
 There sometime is the need to amend a most recent commit e.g. You had committed your changes but added a new change that you want to reflect as part of the previous commit set. To do so you can:
 
@@ -323,7 +316,7 @@ git commit --amend -m "an updated commit message”
 
 To both add the new change and also update the commit message. For example you notice a typo, happens to the best of us. 🙃
 
-### Changing committed files
+<h3>Changing committed files</h3>
 
 ```cmd
 git add <the-file>
@@ -335,7 +328,7 @@ git commit --amend --no-edit
 
 > 🔥 Don’t amend public commits, avoid amending a commit that other developers have based their work on, do so only on your local branch/commits.
 
-### Pushing changes to remote
+<h3>Pushing changes to remote</h3>
 
 When happy with your changes, you can make it public or visible to other collaborators by placing it in the central location with the below commands.
 
@@ -344,36 +337,35 @@ git push
 ```
 
 <details>
-   
-   #### Exercise 4
 
+   <strong>Exercise 4</strong>
    <summary>🏋🏽‍♀️ Committing, amending and pushing changes</summary>
    
    
-   ```
+   ```cmd
    > git checkout branch-a
    > echo "branch-a #2 edit" >> file1-a.txt
    > git add .
    > git commit -m "second commit"
    ```
   
-  Amend the typo in the commit message
+   Amend the typo in the commit message
 
-  ```
-  > git commit --amend -m "second commit"
-  ```
+   ```cmd
+   > git commit --amend -m "second commit"
+   ```
   
-  Add a file to the recent commit
+   Add a file to the recent commit
 
-  ```
-  > echo "The amend file" >> amended.txt
-  > git add amended.txt
-  > git commit --amend --no-edit
-  ```
+   ```cmd
+   > echo "The amend file" >> amended.txt
+   > git add amended.txt
+   > git commit --amend --no-edit
+   ```
 
 </details>   
 
-## Merging, Rebasing and Reverting
+<h3>Merging, Rebasing and Reverting</h3>
 
 There are time when you need to lump things together, combining changes from more than one branch.
 
@@ -383,7 +375,7 @@ Git rebase is used to incorporate changes from one branch into another by rewrit
 
 These feature can be very helpful in keeping things organised or help you separate/chunk your work in more that one branch then bring them all together in one branch.
 
-### Merging
+<h4>Merging</h4>
 
 ```cmd
 git checkout <branch name>
@@ -399,7 +391,7 @@ git merge <branch name> main
 
 Options include `--squash`, `--abort`, `--quit`, `-s [our]` etc.
 
-### Rebasing
+<h4>Rebasing</h4>
 
 ```cmd
 git checkout <branchname>
@@ -415,7 +407,7 @@ You can look at a `merge` as combining two repos together, sorting out the diffe
 
 Git has a nice documentation called [Git Branching - Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) that breaks it down in detail. Check it out if you need more clarity.
 
-### Squashing
+<h4>Squashing</h4>
 
 This is another feature that allows you group multiple commits into one. If you have multiple small changes committed and want to push them out together then `squash` them.
 
@@ -435,19 +427,19 @@ git merge --squash <branch name> (then commit)
 
 _🔥 Note: Try to avoid squashing too many changes into one push that it become one large commit when its review time. Everything in moderation._
 
-### Reverting
+<h4>Reverting</h4>
 
 ```cmd
 git revert --<hard|soft|mixed> <commit-id>
 ```
 
-## Pulling, Searching and Aliases
+<h3>Pulling, Searching and Aliases</h3>
 
 Git pull is used to fetch and download content from a remote repository, updating the local repository to match that content.
 
 Git aliases can shorten common commands and make it easy for you to remember, just try not to go overboard.
 
-### Pulling
+<h4>Pulling</h4>
 
 ```cmd
 git pull <remote>
@@ -459,7 +451,7 @@ git pull --rebase <remote>
 
 > Used to ensure a linear history by preventing unnecessary merge commits.
 
-### Searching
+<h4>Searching</h4>
 
 You can look into your git repo or history to search for information about past commits, branches etc.
 
@@ -477,11 +469,11 @@ This will show your commits
 
 <details>
    
-   #### Exercise 5
+   <strong>Exercise 5</strong>
 
    <summary>🏋🏽‍♀️ Merging and rebasing changes</summary>
 
-   ```
+   ```cmd
    > git checkout main
    > echo "from main" >> main-branch.txt
    > git add . && git commit -m "from main branch"
@@ -496,21 +488,21 @@ This will show your commits
    
    Rebase with the `main` branch from another branch
 
-   ```
+   ```cmd
    > git checkout -b branch-d
    > git rebase main
    ```
 
    Merge all changes to main branch
 
-   ```
+   ```cmd
    > git checkout main
    > git merge branch-a main --squash
    ```
    
    Commit milestone changes before push
 
-   ```
+   ```cmd
    > git checkout main
    > echo "change #1" >> first.txt
    > git commit -am "change #1"
@@ -524,7 +516,7 @@ This will show your commits
    
    Reverting a recent changes
    
-   ```
+   ```cmd
    > git checkout -b revert-b
    > echo "change to revert #1" >> revert.txt
    > git add . && git commit -m "revert change 1"
@@ -539,7 +531,7 @@ This will show your commits
 
 </details>   
 
-### Aliases
+<h4>Aliases</h4>
 
 ```cmd
 git config --global alias.<name> ‘<git subcommand options>’
@@ -559,19 +551,19 @@ To show your git configuration and all the crazy aliases you have set, and the o
 
 <details>
    
-   #### Exercise 6
+   <strong>Exercise 6</strong>
 
    <summary>🏋🏽‍♀️ Pulling, searching and aliases</summary>
    
    Pulling in changes from a remote repo
 
-   ```
+   ```cmd
    > git pull --rebase <remote>
    ```
    
    To search your repository
    
-   ```
+   ```cmd
    > git grep <text> - will look
    > git log --committer felix  --pretty=format:"%h - %an, %ar : %s" --no-merges
    > git log --grep=ukw --pretty=format:"%h - %an, %ar : %s"
@@ -579,31 +571,31 @@ To show your git configuration and all the crazy aliases you have set, and the o
    
    Working with aliases and git config
 
-   ```
+   ```cmd
    > git config --list
    > git config --global
    ```
 
    _Below are just examples, you don't have to execute them as they will update your git config file. The aliases may not be relevant to you_
 
-   ```
+   ```cmd
    > git config --global alias.onlinegraph 'log --oneline --graph --decorate'
    > git config --global alias.expirenow 'reflog expire --expire-unreachable=now --all'
    ```
    
    To use your aliases e.g.
 
-   ```
+   ```cmd
    git onlinegraph
    ```
 
 </details>   
 
-## Next Steps
+<h3>Next Steps</h3>
 
 Git is really powerful and has lots of features, it can sometimes feel overwhelming but practicing one feature at a time is the way to go, you can try out most commands locally.
 
-### For More Adventures
+<h3>For More Adventures</h3>
 
 Any of the below commands in your terminal will provide you with lots of git related information. Comes in handy when you quickly want to verify a command or look up a concept.
 
@@ -615,7 +607,7 @@ git help -g
 
 These will show you lots of other options you can have a play with.
 
-## Practice, practice, practice
+<h3>Practice, practice, practice</h3>
 
 Some great places to look to for deeper learning
 - [Git documentation](https://git-scm.com/doc)
@@ -625,4 +617,3 @@ Some great places to look to for deeper learning
 FYI don't get budged down with too much git detail, majority of the time the common commands will be more than enough for your daily work, having good knowledge of git, or what it can do, comes in handy when those edge cases crop up, usually when working with large teams or on a very active repo with many developers pushing changes near simultaneously.
 
 These days however, most of our IDE's come baked with lots of git  capabilities via plugins and extensions. You just need to install one if not already and you're good-to-go.
-
