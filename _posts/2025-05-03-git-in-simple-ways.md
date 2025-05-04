@@ -45,7 +45,7 @@ git init
 
 The name `main` will be used by default.
 
-```console
+```
 git init -b master
 ```
 
@@ -55,9 +55,9 @@ For your day-to-day projects or if working in collaboration with others, you wil
 
 To do so, from your GitHub account for example, create a new repo, then clone that i.e. make a copy of it on your local machine using the commands below in your terminal of choice.
 
-{% highlight console %}
+```
 git clone <REMOTE_URL>
-{% endhighlight %}
+```
 
 You will notice a new folder in the location you executed the command from.
 
@@ -69,11 +69,11 @@ A remote repo is a repo that exists in another location that uses Git e.g. [GitH
 
 The below command can help you achieve this.
 
-```cmd
+```
 git remote add origin <REMOTE_URL>
 ```
 
-```cmd
+```
 git checkout <REMOTE_URL>
 ```
 
@@ -89,29 +89,29 @@ You may also invite collaborators to review your work on your branch where contr
 
 #### Creating a branch
 
-```cmd
+```
 git branch <branch-name> 
 ```
 
 _Note: You don’t really have a branch until you add or commit a file to the new branch_
 
-```cmd
+```
 git checkout -b <new-branch>
 ```
 
-```cmd
+```
 git checkout -b <new-branch> <existing-branch>
 ```
 
 #### Switching branches
 
-```cmd
+```
 git fetch –all
 ```
 
 _Optional, but sometimes useful, especially in large projects. This updates your local repo with any new branches that may have been created by others_
 
-```cmd
+```
 git checkout <branch-name>
 ```
 
@@ -119,7 +119,7 @@ git checkout <branch-name>
 
 While on the branch you can change it's name like so,
 
-```cmd
+```
 git branch -m <new-branch-name>
 ```
 
@@ -127,19 +127,19 @@ git branch -m <new-branch-name>
 
 There are various ways to delete a branch, both a local copy and a remote copy.
 
-```cmd
+```
 git branch -d <branch-name>
 ```
 
-```cmd
+```
 git branch -D <branch-name>
 ```
 
-```cmd
+```
 git push origin --delete <branch-name>
 ```
 
-```cmd
+```
 git push origin :<branch-name>
 ```
 
@@ -155,13 +155,13 @@ Used when you want to capture the state of changes to the project or mark milest
 
 Before there is anything to commit, you need to add the any changes or files to git. Essentially what this does is that it notifies git to "keep track" of changes to the file.
 
-```cmd
+```
 git add <file-name>
 ```
 
 Add's a single file by name
 
-```cmd
+```
 git add . 
 ```
 
@@ -173,17 +173,17 @@ Key word here is `current` directory. If you have made a repo that has many pare
 
 When you have changes or have reached a point you want to "mark", then its a good time to `commit` your changes after you have [added](#adding-new-files) them.
 
-```cmd
+```
 git status
 ```
 
 Will show you all changes ready to be committed
 
-```cmd
+```
 git commit –m “your descriptive but brief commit message”
 ```
 
-```cmd
+```
 git commit –am “your descriptive but brief commit message” 
 ```
 
@@ -193,13 +193,13 @@ If file has already been [staged](#adding-new-files), you can skip the `add` com
 
 There sometime is the need to amend a most recent commit e.g. You had committed your changes but added a new change that you want to reflect as part of the previous commit set. To do so you can:
 
-```cmd
+```
 git commit --amend
 ```
 
 To add the new change to the last commit
 
-```cmd
+```
 git commit --amend -m "an updated commit message” 
 ```
 
@@ -207,11 +207,11 @@ To both add the new change and also update the commit message. For example you n
 
 ### Changing committed files
 
-```cmd
+```
 git add <the-file>
 ```
 
-```cmd
+```
 git commit --amend --no-edit
 ```
 
@@ -221,7 +221,7 @@ git commit --amend --no-edit
 
 When happy with your changes, you can make it public or visible to other collaborators by placing it in the central location with the below commands.
 
-```cmd
+```
 git push
 ```  
 
@@ -237,15 +237,15 @@ These feature can be very helpful in keeping things organised or help you separa
 
 #### Merging
 
-```cmd
+```
 git checkout <branch name>
 ```
 
-```cmd
+```
 git merge main
 ```
 
-```cmd
+```
 git merge <branch name> main
 ```
 
@@ -253,11 +253,11 @@ Options include `--squash`, `--abort`, `--quit`, `-s [our]` etc.
 
 #### Rebasing
 
-```cmd
+```
 git checkout <branchname>
 ```
 
-```cmd
+```
 git rebase main
 ```
 
@@ -271,15 +271,15 @@ Git has a nice documentation called [Git Branching - Rebasing](https://git-scm.c
 
 This is another feature that allows you group multiple commits into one. If you have multiple small changes committed and want to push them out together then `squash` them.
 
-```cmd
+```
 git log --oneline
 ```
 
-```cmd
+```
 git rebase -i HEAD~N
 ```
 
-```cmd
+```
 git merge --squash <branch name> (then commit)
 ```
 
@@ -289,7 +289,7 @@ _🔥 Note: Try to avoid squashing too many changes into one push that it become
 
 #### Reverting
 
-```cmd
+```
 git revert --<hard|soft|mixed> <commit-id>
 ```
 
@@ -301,11 +301,11 @@ Git aliases can shorten common commands and make it easy for you to remember, ju
 
 #### Pulling
 
-```cmd
+```
 git pull <remote>
 ```
 
-```cmd
+```
 git pull --rebase <remote>
 ```
 
@@ -315,13 +315,13 @@ git pull --rebase <remote>
 
 You can look into your git repo or history to search for information about past commits, branches etc.
 
-```cmd
+```
 git grep <text> 
 ```
 
 This will look through files
 
-```cmd
+```
 git log <options> 
 ```
 
@@ -329,17 +329,17 @@ This will show your commits
 
 #### Aliases
 
-```cmd
+```
 git config --global alias.<name> ‘<git subcommand options>’
 ```
 
-```cmd
+```
 git config –e 
 ```
 
 To open your default editor
 
-```cmd
+```
 git config --list
 ```
 
@@ -353,7 +353,7 @@ Git is really powerful and has lots of features, it can sometimes feel overwhelm
 
 Any of the below commands in your terminal will provide you with lots of git related information. Comes in handy when you quickly want to verify a command or look up a concept.
 
-```cmd
+```
 git –help 
 git help -a
 git help -g
