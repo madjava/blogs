@@ -18,7 +18,7 @@ is_blog: true
 [Git](https://git-scm.com/) is a fast and modern implementation of version control. It provides a history of content
 changes and facilitates collaborative changes to files.
 
-### Why do I need Git### 
+### Why do I need Git###
 
 - Fast and easy to setup and learn
 - Locally enable and distributed
@@ -144,7 +144,6 @@ git push origin :<branch-name>
 ```
 
 _Note: Deleting it locally does not "delete" the branch, it still exists on the remote server until you `push` your changes out, thread with caution._
-
 
 ### Committing, Amending and Pushing changes
 
@@ -365,6 +364,7 @@ These will show you lots of other options you can have a play with.
 ### Practice, practice, practice
 
 Some great places to look to for deeper learning
+
 - [Git documentation](https://git-scm.com/doc)
 - [Git In The Trenches](https://cbx33.github.io/gitt/intro.html)
 - [For More Adventures](#for-more-adventures) section commands
