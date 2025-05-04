@@ -45,7 +45,7 @@ git init
 
 The name `main` will be used by default.
 
-```cmd
+```console
 git init -b master
 ```
 
@@ -55,9 +55,9 @@ For your day-to-day projects or if working in collaboration with others, you wil
 
 To do so, from your GitHub account for example, create a new repo, then clone that i.e. make a copy of it on your local machine using the commands below in your terminal of choice.
 
-```cmd
+{% highlight console %}
 git clone <REMOTE_URL>
-```
+{% endhighlight %}
 
 You will notice a new folder in the location you executed the command from.
 
