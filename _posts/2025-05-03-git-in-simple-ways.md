@@ -6,19 +6,19 @@ level: Beginner
 is_blog: true
 ---
 
-<h3>Assumptions</h3>
+### Assumptions
 
 - You have Git [installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your local machine
 - You have either a [GitHub](https://github.com/) or [BitBucket](https://bitbucket.org/) account.
 - You have a terminal tool or an [IDE](https://www.geeksforgeeks.org/what-is-ide/) that provided one
   - [iTerm](https://bitbucket.org/) is nice if using a Mac
 
-<h3>What is Git</h3>
+### What is Git
 
 [Git](https://git-scm.com/) is a fast and modern implementation of version control. It provides a history of content
 changes and facilitates collaborative changes to files.
 
-<h3>Why do I need Git<h3>
+### Why do I need Git### 
 
 - Fast and easy to setup and learn
 - Locally enable and distributed
@@ -27,7 +27,7 @@ changes and facilitates collaborative changes to files.
 - Lots of tools, features and documentation
 - A large community of users
 
-<h3>Git is not GitHub</h3>
+### Git is not GitHub
 
 👉🏽 **Git** is a version control system that let's you manage and keep track of your source code history.
 
@@ -35,17 +35,17 @@ changes and facilitates collaborative changes to files.
 
 If you have open-source projects that use Git, then GitHub is designed to help you better manage them.
 
-<h3>The Basics - Setting up</h3>
+### The Basics - Setting up
 
-<h4>Creating a Git repository</h4>
+#### Creating a Git repository
 
-```cmd
+```json
 git init 
 ```
 
 The name `main` will be used by default.
 
-```cmd
+```json
 git init -b master
 ```
 
@@ -55,23 +55,23 @@ For your day-to-day projects or if working in collaboration with others, you wil
 
 To do so, from your GitHub account for example, create a new repo, then clone that i.e. make a copy of it on your local machine using the commands below in your terminal of choice.
 
-```cmd
+```json
 git clone <REMOTE_URL>
 ```
 
 You will notice a new folder in the location you executed the command from.
 
-<details>
+<!-- details>
    <summary>🏋🏽‍♀️ Setting up exercises</summary>
    <strong>Exercise 1</strong>
 
    Create a folder called `simple-git` and navigate into it
 
-   ```cmd
+   ```json
    mkdir simple-git && cd simple-git
    ```
 
-   ```cmd
+   ```json
    > mkdir lab1 && cd lab1
    > git init # to setup a new repo
    > echo "First file and content" >> first.txt
@@ -83,13 +83,13 @@ You will notice a new folder in the location you executed the command from.
    In the `simple-git` folder, create a new repo on your GitHub account called `lab2`. The from another folder execute the below commands
 
 
-   ```cmd
+   ```json
    > git clone git@github.com:<your-github-account>/lab2.git
    ```
 
    if you have setup a git token and ssl or
 
-   ```cmd
+   ```json
    > git clone https://github.com/<your-github-account>/lab2.git
    ```
 
@@ -102,10 +102,10 @@ simple-git
 └── lab2
 </pre>
 
-</details>
+</details -->
 
 
-<h4>Synching your git repo</h4>
+#### Synching your git repo
 
 If you already have a local git repo by [initialing](#creating-a-git-repository) git locally, you can point it (connect it) to an existing remote repo.
 
@@ -113,17 +113,17 @@ A remote repo is a repo that exists in another location that uses Git e.g. [GitH
 
 The below command can help you achieve this.
 
-```cmd
+```json
 git remote add origin <REMOTE_URL>
 ```
 
-```cmd
+```json
 git checkout <REMOTE_URL>
 ```
 
 Your local repo will now point to your remove repo, meaning when you push changes the remote repo will get those changes.
 
-<details>
+<!-- details>
    <strong>Exercise 2</strong>
    <summary>🏋🏽‍♀️ Synching your git repo</summary>
 
@@ -131,85 +131,85 @@ Your local repo will now point to your remove repo, meaning when you push change
 
    The run the following commands from the `simple-git` folder
    
-   ```cmd
+   ```json
    mkdir lab2 && git init
    ```
 
    This will initialise a `git` locally then point that to the remove repo using commands above.
 
-   ```cmd
+   ```json
    git remote add origin https://github.com/<your-github-account>/lab2.git
    ```
-</details>
+</details -->
 
 
 _**Note:** Watch out for discrepancies aka `merge` conflicts if files already exists in either repositories. You may have to take further [actions](#merging-rebasing-and-reverting) to resolve them_
 
-<h3>Branching and Switching</h3>
+### Branching and Switching
 
 A branch represents an independent line of development, like a silo. When working in collaboration with others, you create a branch, a copy of the project, where you can experiment with your ideas make change and not affect the main body of work.
 
 You may also invite collaborators to review your work on your branch where contributions will be added to it and reviews received.
 
-<h4>Creating a branch</h4>
+#### Creating a branch
 
-```cmd
+```json
 git branch <branch-name> 
 ```
 
 _Note: You don’t really have a branch until you add or commit a file to the new branch_
 
-```cmd
+```json
 git checkout -b <new-branch>
 ```
 
-```cmd
+```json
 git checkout -b <new-branch> <existing-branch>
 ```
 
-<h4>Switching branches</h4>
+#### Switching branches
 
-```cmd
+```json
 git fetch –all
 ```
 
 _Optional, but sometimes useful, especially in large projects. This updates your local repo with any new branches that may have been created by others_
 
-```cmd
+```json
 git checkout <branch-name>
 ```
 
-<h4>Renaming a branch</h4>
+#### Renaming a branch
 
 While on the branch you can change it's name like so,
 
-```cmd
+```json
 git branch -m <new-branch-name>
 ```
 
-<h4>Deleting branches</h4>
+#### Deleting branches
 
 There are various ways to delete a branch, both a local copy and a remote copy.
 
-```cmd
+```json
 git branch -d <branch-name>
 ```
 
-```cmd
+```json
 git branch -D <branch-name>
 ```
 
-```cmd
+```json
 git push origin --delete <branch-name>
 ```
 
-```cmd
+```json
 git push origin :<branch-name>
 ```
 
 _Note: Deleting it locally does not "delete" the branch, it still exists on the remote server until you `push` your changes out, thread with caution._
 
-<details>
+<!-- details>
 
    <strong>Exercise 3</strong>
    <summary>🏋🏽‍♀️ Branching, Switching and Deleting</summary>
@@ -218,7 +218,7 @@ _Note: Deleting it locally does not "delete" the branch, it still exists on the 
 
    Execute the following commands.
 
-   ```cmd
+   ```json
    > git branch branch-a
    > git checkout branch-a
    > echo "branch-a first file and content" >> file1-a.txt
@@ -228,7 +228,7 @@ _Note: Deleting it locally does not "delete" the branch, it still exists on the 
 
   Create and checkout at the same time
   
-  ```cmd
+  ```json
   > git checkout -b branch-b
   > echo "branch-b first file and content" >> file1-b.txt
   > git add .
@@ -236,43 +236,43 @@ _Note: Deleting it locally does not "delete" the branch, it still exists on the 
 
   Create a branch from an existing branch
 
-  ```cmd
+  ```json
   > git checkout -b branch-a branch-c
   ```
 
   Delete the new branch created
 
-  ```cmd
+  ```json
   > git branch -d branch-c
   > git branch -d branch-b 
   ```
 
   Deleting `branch-b` will fail, to force delete
 
-  ```cmd
+  ```json
   > git branch -D branch-b
   ```
 
-</details>   
+</details -->   
 
 
-<h3>Committing, Amending and Pushing changes</h3>
+### Committing, Amending and Pushing changes
 
 Commits can be thought of as snapshots or milestones along the timeline of a Git project.
 
 Used when you want to capture the state of changes to the project or mark milestones as the work evolves.
 
-<h4>Adding new files</h4>
+#### Adding new files
 
 Before there is anything to commit, you need to add the any changes or files to git. Essentially what this does is that it notifies git to "keep track" of changes to the file.
 
-```cmd
+```json
 git add <file-name>
 ```
 
 Add's a single file by name
 
-```cmd
+```json
 git add . 
 ```
 
@@ -280,69 +280,69 @@ This adds every file change in current directory.
 
 Key word here is `current` directory. If you have made a repo that has many parent and child folders and you make changes in multiple places then you either have to jump to each folder and run the above command or jump to the parent directory and add all.
 
-<h4>Committing changes</h4>
+#### Committing changes
 
 When you have changes or have reached a point you want to "mark", then its a good time to `commit` your changes after you have [added](#adding-new-files) them.
 
-```cmd
+```json
 git status
 ```
 
 Will show you all changes ready to be committed
 
-```cmd
+```json
 git commit –m “your descriptive but brief commit message”
 ```
 
-```cmd
+```json
 git commit –am “your descriptive but brief commit message” 
 ```
 
 If file has already been [staged](#adding-new-files), you can skip the `add` commands and just use the `-am` flag, this is a short cut to both `add` the file and add a commit message as above.
 
-<h4>Amending commits</h4>
+#### Amending commits
 
 There sometime is the need to amend a most recent commit e.g. You had committed your changes but added a new change that you want to reflect as part of the previous commit set. To do so you can:
 
-```cmd
+```json
 git commit --amend
 ```
 
 To add the new change to the last commit
 
-```cmd
+```json
 git commit --amend -m "an updated commit message” 
 ```
 
 To both add the new change and also update the commit message. For example you notice a typo, happens to the best of us. 🙃
 
-<h3>Changing committed files</h3>
+### Changing committed files
 
-```cmd
+```json
 git add <the-file>
 ```
 
-```cmd
+```json
 git commit --amend --no-edit
 ```
 
 > 🔥 Don’t amend public commits, avoid amending a commit that other developers have based their work on, do so only on your local branch/commits.
 
-<h3>Pushing changes to remote</h3>
+### Pushing changes to remote
 
 When happy with your changes, you can make it public or visible to other collaborators by placing it in the central location with the below commands.
 
-```cmd
+```json
 git push
 ```
 
-<details>
+<!-- details>
 
    <strong>Exercise 4</strong>
    <summary>🏋🏽‍♀️ Committing, amending and pushing changes</summary>
    
    
-   ```cmd
+   ```json
    > git checkout branch-a
    > echo "branch-a #2 edit" >> file1-a.txt
    > git add .
@@ -351,21 +351,21 @@ git push
   
    Amend the typo in the commit message
 
-   ```cmd
+   ```json
    > git commit --amend -m "second commit"
    ```
   
    Add a file to the recent commit
 
-   ```cmd
+   ```json
    > echo "The amend file" >> amended.txt
    > git add amended.txt
    > git commit --amend --no-edit
    ```
 
-</details>   
+</details -->   
 
-<h3>Merging, Rebasing and Reverting</h3>
+### Merging, Rebasing and Reverting
 
 There are time when you need to lump things together, combining changes from more than one branch.
 
@@ -375,29 +375,29 @@ Git rebase is used to incorporate changes from one branch into another by rewrit
 
 These feature can be very helpful in keeping things organised or help you separate/chunk your work in more that one branch then bring them all together in one branch.
 
-<h4>Merging</h4>
+#### Merging
 
-```cmd
+```json
 git checkout <branch name>
 ```
 
-```cmd
+```json
 git merge main
 ```
 
-```cmd
+```json
 git merge <branch name> main
 ```
 
 Options include `--squash`, `--abort`, `--quit`, `-s [our]` etc.
 
-<h4>Rebasing</h4>
+#### Rebasing
 
-```cmd
+```json
 git checkout <branchname>
 ```
 
-```cmd
+```json
 git rebase main
 ```
 
@@ -407,19 +407,19 @@ You can look at a `merge` as combining two repos together, sorting out the diffe
 
 Git has a nice documentation called [Git Branching - Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) that breaks it down in detail. Check it out if you need more clarity.
 
-<h4>Squashing</h4>
+#### Squashing
 
 This is another feature that allows you group multiple commits into one. If you have multiple small changes committed and want to push them out together then `squash` them.
 
-```cmd
+```json
 git log --oneline
 ```
 
-```cmd
+```json
 git rebase -i HEAD~N
 ```
 
-```cmd
+```json
 git merge --squash <branch name> (then commit)
 ```
 
@@ -427,53 +427,53 @@ git merge --squash <branch name> (then commit)
 
 _🔥 Note: Try to avoid squashing too many changes into one push that it become one large commit when its review time. Everything in moderation._
 
-<h4>Reverting</h4>
+#### Reverting
 
-```cmd
+```json
 git revert --<hard|soft|mixed> <commit-id>
 ```
 
-<h3>Pulling, Searching and Aliases</h3>
+### Pulling, Searching and Aliases
 
 Git pull is used to fetch and download content from a remote repository, updating the local repository to match that content.
 
 Git aliases can shorten common commands and make it easy for you to remember, just try not to go overboard.
 
-<h4>Pulling</h4>
+#### Pulling
 
-```cmd
+```json
 git pull <remote>
 ```
 
-```cmd
+```json
 git pull --rebase <remote>
 ```
 
 > Used to ensure a linear history by preventing unnecessary merge commits.
 
-<h4>Searching</h4>
+#### Searching
 
 You can look into your git repo or history to search for information about past commits, branches etc.
 
-```cmd
+```json
 git grep <text> 
 ```
 
 This will look through files
 
-```cmd
+```json
 git log <options> 
 ```
 
 This will show your commits
 
-<details>
+<!-- details>
    
    <strong>Exercise 5</strong>
 
    <summary>🏋🏽‍♀️ Merging and rebasing changes</summary>
 
-   ```cmd
+   ```json
    > git checkout main
    > echo "from main" >> main-branch.txt
    > git add . && git commit -m "from main branch"
@@ -488,21 +488,21 @@ This will show your commits
    
    Rebase with the `main` branch from another branch
 
-   ```cmd
+   ```json
    > git checkout -b branch-d
    > git rebase main
    ```
 
    Merge all changes to main branch
 
-   ```cmd
+   ```json
    > git checkout main
    > git merge branch-a main --squash
    ```
    
    Commit milestone changes before push
 
-   ```cmd
+   ```json
    > git checkout main
    > echo "change #1" >> first.txt
    > git commit -am "change #1"
@@ -516,7 +516,7 @@ This will show your commits
    
    Reverting a recent changes
    
-   ```cmd
+   ```json
    > git checkout -b revert-b
    > echo "change to revert #1" >> revert.txt
    > git add . && git commit -m "revert change 1"
@@ -529,27 +529,27 @@ This will show your commits
    > git revert -e <commitid>
    ```
 
-</details>   
+</details -->   
 
-<h4>Aliases</h4>
+#### Aliases
 
-```cmd
+```json
 git config --global alias.<name> ‘<git subcommand options>’
 ```
 
-```cmd
+```json
 git config –e 
 ```
 
 To open your default editor
 
-```cmd
+```json
 git config --list
 ```
 
 To show your git configuration and all the crazy aliases you have set, and the one you had forgotten about 🙃.
 
-<details>
+<!-- details>
    
    <strong>Exercise 6</strong>
 
@@ -557,13 +557,13 @@ To show your git configuration and all the crazy aliases you have set, and the o
    
    Pulling in changes from a remote repo
 
-   ```cmd
+   ```json
    > git pull --rebase <remote>
    ```
    
    To search your repository
    
-   ```cmd
+   ```json
    > git grep <text> - will look
    > git log --committer felix  --pretty=format:"%h - %an, %ar : %s" --no-merges
    > git log --grep=ukw --pretty=format:"%h - %an, %ar : %s"
@@ -571,35 +571,35 @@ To show your git configuration and all the crazy aliases you have set, and the o
    
    Working with aliases and git config
 
-   ```cmd
+   ```json
    > git config --list
    > git config --global
    ```
 
    _Below are just examples, you don't have to execute them as they will update your git config file. The aliases may not be relevant to you_
 
-   ```cmd
+   ```json
    > git config --global alias.onlinegraph 'log --oneline --graph --decorate'
    > git config --global alias.expirenow 'reflog expire --expire-unreachable=now --all'
    ```
    
    To use your aliases e.g.
 
-   ```cmd
+   ```json
    git onlinegraph
    ```
 
-</details>   
+</details -->   
 
-<h3>Next Steps</h3>
+### Next Steps
 
 Git is really powerful and has lots of features, it can sometimes feel overwhelming but practicing one feature at a time is the way to go, you can try out most commands locally.
 
-<h3>For More Adventures</h3>
+### For More Adventures
 
 Any of the below commands in your terminal will provide you with lots of git related information. Comes in handy when you quickly want to verify a command or look up a concept.
 
-```cmd
+```json
 git –help 
 git help -a
 git help -g
@@ -607,7 +607,7 @@ git help -g
 
 These will show you lots of other options you can have a play with.
 
-<h3>Practice, practice, practice</h3>
+### Practice, practice, practice
 
 Some great places to look to for deeper learning
 - [Git documentation](https://git-scm.com/doc)
