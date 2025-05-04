@@ -61,7 +61,7 @@ git clone <REMOTE_URL>
 
 You will notice a new folder in the location you executed the command from.
 
-<details>
+<!-- details>
    <summary>🏋🏽‍♀️ Setting up exercises</summary>
    <strong>Exercise 1</strong>
 
@@ -102,7 +102,7 @@ simple-git
 └── lab2
 </pre>
 
-</details>
+</details -->
 
 
 #### Synching your git repo
@@ -123,7 +123,7 @@ git checkout <REMOTE_URL>
 
 Your local repo will now point to your remove repo, meaning when you push changes the remote repo will get those changes.
 
-<details>
+<!-- details>
    <strong>Exercise 2</strong>
    <summary>🏋🏽‍♀️ Synching your git repo</summary>
 
@@ -140,7 +140,7 @@ Your local repo will now point to your remove repo, meaning when you push change
    ```json
    git remote add origin https://github.com/<your-github-account>/lab2.git
    ```
-</details>
+</details -->
 
 
 _**Note:** Watch out for discrepancies aka `merge` conflicts if files already exists in either repositories. You may have to take further [actions](#merging-rebasing-and-reverting) to resolve them_
@@ -209,7 +209,7 @@ git push origin :<branch-name>
 
 _Note: Deleting it locally does not "delete" the branch, it still exists on the remote server until you `push` your changes out, thread with caution._
 
-<details>
+<!-- details>
 
    <strong>Exercise 3</strong>
    <summary>🏋🏽‍♀️ Branching, Switching and Deleting</summary>
@@ -253,7 +253,7 @@ _Note: Deleting it locally does not "delete" the branch, it still exists on the 
   > git branch -D branch-b
   ```
 
-</details>   
+</details -->   
 
 
 ### Committing, Amending and Pushing changes
@@ -336,7 +336,7 @@ When happy with your changes, you can make it public or visible to other collabo
 git push
 ```
 
-<details>
+<!-- details>
 
    <strong>Exercise 4</strong>
    <summary>🏋🏽‍♀️ Committing, amending and pushing changes</summary>
@@ -363,7 +363,7 @@ git push
    > git commit --amend --no-edit
    ```
 
-</details>   
+</details -->   
 
 ### Merging, Rebasing and Reverting
 
@@ -467,7 +467,7 @@ git log <options>
 
 This will show your commits
 
-<details>
+<!-- details>
    
    <strong>Exercise 5</strong>
 
@@ -529,7 +529,7 @@ This will show your commits
    > git revert -e <commitid>
    ```
 
-</details>   
+</details -->   
 
 #### Aliases
 
@@ -549,7 +549,7 @@ git config --list
 
 To show your git configuration and all the crazy aliases you have set, and the one you had forgotten about 🙃.
 
-<details>
+<!-- details>
    
    <strong>Exercise 6</strong>
 
@@ -589,7 +589,7 @@ To show your git configuration and all the crazy aliases you have set, and the o
    git onlinegraph
    ```
 
-</details>   
+</details -->   
 
 ### Next Steps
 
