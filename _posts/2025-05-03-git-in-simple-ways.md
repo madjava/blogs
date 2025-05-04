@@ -605,9 +605,11 @@ Git is really powerful and has lots of features, it can sometimes feel overwhelm
 
 ### For More Adventures
 
+Any of the below commands in your terminal will provide you with lots of git related information. Comes in handy when you quickly want to verify a command or look up a concept.
+
 ```cmd
-git –help, 
-git help -a or 
+git –help 
+git help -a
 git help -g
 ```
 
@@ -618,6 +620,7 @@ These will show you lots of other options you can have a play with.
 Some great places to look to for deeper learning
 - [Git documentation](https://git-scm.com/doc)
 - [Git In The Trenches](https://cbx33.github.io/gitt/intro.html)
+- [For More Adventures](#for-more-adventures) section commands
 
 FYI don't get budged down with too much git detail, majority of the time the common commands will be more than enough for your daily work, having good knowledge of git, or what it can do, comes in handy when those edge cases crop up, usually when working with large teams or on a very active repo with many developers pushing changes near simultaneously.
 
