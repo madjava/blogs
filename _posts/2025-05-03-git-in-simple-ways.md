@@ -18,7 +18,7 @@ is_blog: true
 [Git](https://git-scm.com/) is a fast and modern implementation of version control. It provides a history of content
 changes and facilitates collaborative changes to files.
 
-### Why do I need Git###
+### Why do I need Git
 
 - Fast and easy to setup and learn
 - Locally enable and distributed
@@ -39,7 +39,7 @@ If you have open-source projects that use Git, then GitHub is designed to help y
 
 #### Creating a Git repository
 
-```cmd
+```
 git init 
 ```
 
