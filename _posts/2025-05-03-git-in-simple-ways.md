@@ -62,9 +62,7 @@ git clone <REMOTE_URL>
 You will notice a new folder in the location you executed the command from.
 
 <details>
-
    <summary>🏋🏽‍♀️ Setting up exercises</summary>
-
    <strong>Exercise 1</strong>
 
    Create a folder called `simple-git` and navigate into it
@@ -126,9 +124,7 @@ git checkout <REMOTE_URL>
 Your local repo will now point to your remove repo, meaning when you push changes the remote repo will get those changes.
 
 <details>
-   
    <strong>Exercise 2</strong>
-
    <summary>🏋🏽‍♀️ Synching your git repo</summary>
 
    You could try this out by deleting the `lab2` folder from [exercise 1](#exercise-1)
@@ -214,9 +210,8 @@ git push origin :<branch-name>
 _Note: Deleting it locally does not "delete" the branch, it still exists on the remote server until you `push` your changes out, thread with caution._
 
 <details>
-   
-   <strong>Exercise 3</strong>
 
+   <strong>Exercise 3</strong>
    <summary>🏋🏽‍♀️ Branching, Switching and Deleting</summary>
 
    Navigate to `lab1` folder as described in [exercise 1](#exercise-1)
@@ -321,7 +316,7 @@ git commit --amend -m "an updated commit message”
 
 To both add the new change and also update the commit message. For example you notice a typo, happens to the best of us. 🙃
 
-### Changing committed files
+<h3>Changing committed files</h3>
 
 ```cmd
 git add <the-file>
@@ -333,7 +328,7 @@ git commit --amend --no-edit
 
 > 🔥 Don’t amend public commits, avoid amending a commit that other developers have based their work on, do so only on your local branch/commits.
 
-### Pushing changes to remote
+<h3>Pushing changes to remote</h3>
 
 When happy with your changes, you can make it public or visible to other collaborators by placing it in the central location with the below commands.
 
@@ -342,9 +337,8 @@ git push
 ```
 
 <details>
-   
-   <strong>Exercise 4</strong>
 
+   <strong>Exercise 4</strong>
    <summary>🏋🏽‍♀️ Committing, amending and pushing changes</summary>
    
    
@@ -537,7 +531,7 @@ This will show your commits
 
 </details>   
 
-<h3>Aliases</h3>
+<h4>Aliases</h4>
 
 ```cmd
 git config --global alias.<name> ‘<git subcommand options>’
