@@ -4,7 +4,6 @@ author: Felix Eyetan
 title: Simple ways to use Git
 level: Beginner
 is_blog: true
-categories: general git
 ---
 
 ### Assumptions
