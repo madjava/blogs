@@ -96,6 +96,7 @@ git branch <branch-name>
 
 _Note: You don’t really have a branch until you add or commit a file to the new branch_
 
+
 ```
 git checkout -b <new-branch>
 ```
