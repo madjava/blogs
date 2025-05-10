@@ -38,7 +38,7 @@ Hub and Spoke Architecture is a design model often used in network systems, data
 
 ### What we will build?
 
-![CNGFW Hub & Spoke Architecture](../assets/images/azure/cngfw-project.drawio.png)
+![CNGFW Hub & Spoke Architecture](../../assets/images/azure/cngfw-project.drawio.png)
 
 **Img 1:** Final project architecture
 
