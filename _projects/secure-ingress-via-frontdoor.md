@@ -142,4 +142,5 @@ While this is a common architecture pattern, there is room for improvement or ad
 ## Next steps
 
 - **Challenge yourself:** Attempt to deploy the project code via Azure DevOps pipeline, Github Actions, Jenkins, Argos CD or whatever CI tool you are comfortable with. You can find some blogs on how to do this at [Thomas Thornton Blog](https://thomasthornton.cloud/)
+- **Redundancy & High Availability:** How can you improve on this, where do you see single points of failure in this design and how can you mitigate against that
 - **Further learning:** Azure has lots of great content regarding [network architectures](https://learn.microsoft.com/en-us/azure/architecture/networking/), do check them out and try
