@@ -1,7 +1,7 @@
 ---
 layout: page
 author: Felix Eyetan
-title: Secure Ingress via Azure Frontdoor Private Link Service
+title: Secure Hub-and-Spoke Architecture on Azure
 level: Intermediate
 description: "Securing ingress traffic via Azure frontdoor private link and Palo Alto firewall"
 is_blog: false
@@ -25,13 +25,19 @@ Your objective is to design and deploy the necessary infrastructure to securely 
 
 ## What we will build
 
-In this project, we’ll design and deploy a secure, scalable hub-and-spoke network architecture in Azure. The setup includes two spoke virtual networks—each hosting a virtual machine—connected to a centralized hub network that provides shared security, connectivity, and management services.
+In this project, we'll design and deploy a secure, scalable hub-and-spoke network architecture in Azure. The setup includes two spoke virtual networks—each hosting a virtual machine—connected to a central hub that provides shared security and connectivity services.
 
-The hub network hosts a Palo Alto firewall for traffic inspection, a NAT Gateway for secure and consistent outbound internet access, and Azure Bastion for remote administration without exposing public IPs. Inbound traffic enters through Azure Front Door Premium integrated with Private Link, protected by Front Door WAF policies for Layer 7 (application-level) inspection.
+The hub network hosts:
 
-All spoke virtual machines route their traffic through user-defined routes (UDRs) that direct flows to an internal load balancer connected to the firewall, ensuring centralized inspection and control. Importantly, east-west traffic between spokes will traverse the hub, as there is no direct spoke-to-spoke peering, enforcing a single inspection and control point.
+- Palo Alto firewall for traffic inspection
+- NAT Gateway for secure outbound internet access
+- Azure Bastion for remote administration without public IPs
 
-This architecture demonstrates how to implement centralized security, controlled outbound connectivity, and full inspection of north-south and east-west traffic using Azure-native services combined with a third-party firewall, aligning with Zero Trust network design principles.
+Inbound traffic is routed through Azure Front Door Premium, integrated with Private Link and protected by WAF policies for Layer 7 inspection.
+
+Spoke VMs use user-defined routes (UDRs) to send traffic through an internal load balancer connected to the firewall, ensuring centralized inspection. East-west traffic between spokes is routed via the hub, enforcing a single control point.
+
+This architecture will demonstrate centralized security, controlled outbound access, and full inspection of north-south and east-west traffic—aligning with Zero Trust principles using Azure-native services and third-party security tooling.
 
 ## Architecture
 
