@@ -9,7 +9,11 @@ is_blog: false
 
 ## Project Summary
 
-Partedwaves Ltd, a company that provides wed based service to it's clients that can be anywhere in the world. The want you to to build secure architecture on Azure to enable them serve internet traffic to users and customers. They have heard of Azure frontdoor as a global CDN you to deploy the relevant infrastructure that would enable user reach backend services deployed by the Development team.
+Partedwaves Ltd delivers web-based services to a global client base. To support secure and scalable internet-facing applications, they require an Azure-based architecture that enables reliable access to backend services developed by their engineering team.
+
+They are considering Azure Front Door for global traffic distribution and CDN capabilities. 
+
+Your objective is to design and deploy the necessary infrastructure to securely expose these services to users worldwide, ensuring performance, availability, and protection.
 
 ## Pre-requisite and Assumptions
 
