@@ -1,9 +1,10 @@
 ---
 layout: page
 author: Felix Eyetan
-title: Hub-and-Spoke Architecture on Azure with Public Loadbalaner
+title: Secure Ingress via Azure Loadbalancer and Palo Alto Firewall
 level: Intermediate
-description: "Securing ingress traffic via Public load balancer and Palo Alto firewall"
+description: "Securing ingress traffic via Public load balancer and Palo Alto firewall using a hub-and-spoke architecture on Azure."
+category: azure
 is_blog: false
 ---
 
