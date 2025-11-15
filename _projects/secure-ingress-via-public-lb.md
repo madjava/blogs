@@ -42,7 +42,7 @@ This architecture will demonstrate centralized security, controlled outbound acc
 <details>
 <summary>Project Architecture Diagram</summary>
 
- ![Secure Ingress via Azure Public loadbalancer]({{ site.url }}/blogs/assets/images/azure/lb-ingress-architecture.png)
+  <img src="{{ site.url }}/blogs/assets/images/azure/lb-ingress-architecture.png" alt="Secure Ingress via Azure Public loadbalancer architecture diagram" style="max-width: 100%; height: auto;">
 
 </details>
 
