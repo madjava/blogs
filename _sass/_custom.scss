@@ -49,3 +49,15 @@
       margin-right: 5px;
     }
   }
+
+  .page-content{
+    article {
+      header {
+        border-bottom: 2px solid #eee;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+h2, h3, h4 { margin-top: 2rem!important; }

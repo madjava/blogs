@@ -43,7 +43,7 @@ This architecture will demonstrate centralized security, controlled outbound acc
 <details>
 <summary>Project Architecture Diagram</summary>
 
-![Secure Ingress via Azure Public loadbalancer](../assets/images/azure/lb-ingress-architecture.png)
+ ![Secure Ingress via Azure Public loadbalancer]({{ site.url }}/blogs/assets/images/azure/lb-ingress-architecture.png)
 
 </details>
 
@@ -77,7 +77,7 @@ After cloning, follow the `README.md` file and go through the steps.
 
 * **Layer 7 Protection**
     
-    Palo Alto firewall adds application-layer (L7) defense, protecting against web attacks such as SQL injection, XSS, and DDoS.
+    Palo Alto firewall adds [application-layer](https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-new-features/url-filtering-features/advanced-url-filtering) (L7) defense capability, protecting against web attacks such as SQL injection, XSS, and DDoS capabilities to ingress and egress flows.
 
 * **Improved East-West Visibility**
 
@@ -111,7 +111,7 @@ After cloning, follow the `README.md` file and go through the steps.
 
 * **Reliance on Custom Routing**
 
-    Azure’s non-transitive VNet peering model requires manual routing (via UDRs) for spoke-to-spoke communication, adding maintenance overhead.
+    Azure’s non-transitive VNet peering model requires manual routing (via UDRs) for spoke-to-spoke communication.
 
 * **Single Point of Failure**
 
