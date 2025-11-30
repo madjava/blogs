@@ -8,133 +8,49 @@ category: azure
 is_blog: false
 ---
 
-## PoC Plan Overview
-This project demonstrates advanced capabilities of **Azure Bastion Premium SKU** in a hub-and-spoke network architecture.<br>
+This project explores some of the Azure Bastion.<br>
 
-The focus is on secure, role-based access to virtual machines (VMs) in spoke VNets, leveraging Entra ID authentication, Conditional Access policies, session recording, and file transfer with granular permissions.
+Check out the project code on this [GitHub Repository](https://github.com/madjava/azure-bastion.git) and follow the [README](https://github.com/madjava/azure-bastion/README.md) on deploying Azure Bastion in your cloud environment.
 
-To learn more about Azure bastion, check out the official documentation [here](https://learn.microsoft.com/en-us/azure/bastion/).
-***
+## Project Overview
 
-### **Architecture Diagram**
-[TODO: Insert Architecture Diagram Image Here]
+The project code explores both capabilities of Azure Bastion.
 
-### Our Goals
+- Access via the public endpoint
+- Access via a private endpoint _(Premium SKU only)_
 
-* Entra ID authentication with Conditional Access
-* Role-based access integrated with Access Packages
-* Private access only (VPN required)
-* Bastion Premium SKU in hub VNet
-* Session recording (video + command logs) stored in encrypted Storage Account (7-day retention)
-* File transfer with role-based restrictions
-* Native client (CLI + SSH/RDP) and browser access via Shareable Link
-* Scalable for \~50 users
-* Monitoring via Azure Monitor + Log Analytics
+In both situations connection is still over a TLS connection. Organisation needs or governance requirements may prompt the need for one option over another. We explore both, and you would be able to deploy one or the other by configuration variables set in the available `tfvars` file in the repo.
 
-### Our limitations
-* No public IP on Bastion (Private IP only)
-* No direct internet access to VMs (VPN required)
-* Azure P1 licenses for Conditional Access
+### Architecture Diagram - Over Public Connection
 
-***
+<details>
+<summary>Public endpoint Architecture Diagram</summary>
 
-### **Step-by-Step Execution Plan**
+<img src="{{ site.url }}/blogs/assets/images/azure/blog-azure-bastion-public.png" alt="Secure Ingress via Azure Bsstion public endpoint architecture diagram" />
+</details>
 
-#### **1. Prerequisites**
+In this architecture, users connect to Azure Bastion through its public IP endpoint, where all required authentication and authorization controls—such as Azure AD, MFA, and RBAC—can be applied before access is granted. This secure, identity-driven approach eliminates the need for a VPN, removing the overhead of provisioning and managing additional infrastructure to reach resources within the virtual network.
 
-*   Confirm hub-and-spoke network setup with VNet peering.
-*   Ensure VPN gateway is configured and tested.
-*   Prepare Entra ID groups for:
-    *   **Bastion-Connect** (basic access)
-    *   **Bastion-UploadDownload** (full file transfer)
-    *   **Bastion-UploadOnly** (restricted file transfer)
-*   Validate Access Package workflow for these groups.
+### Architecture Diagram - Over Private Connection
 
-***
+<details>
+<summary>Public endpoint Architecture Diagram</summary>
 
-#### **2. Deploy Azure Bastion Premium**
+<img src="{{ site.url }}/blogs/assets/images/azure/blog-azure-bastion-private.png" alt="Secure Ingress via Azure Bsstion public endpoint architecture diagram" />
+</details>
 
-*   Deploy **Azure Bastion Premium SKU** in the **hub VNet**.
-*   Enable:
-    *   **Native Client Support**
-    *   **Shareable Link**
-    *   **File Transfer**
-    *   **Session Recording**
-*   Configure **Private IP only** (disable public IP).
-*   Integrate Bastion with **Private Link** for extra isolation.
+In this architecture, users connect to Azure Bastion through a private endpoint, accessed via an existing VPN connection into the environment. This ensures all administrative traffic remains on the internal network and never touches the public internet. Azure AD, MFA, and RBAC can be enforced at the control plane, providing strong identity-based authentication before access is granted. Although a VPN, or some means unto the private network is required for private access, this model significantly enhances security by eliminating public exposure while maintaining seamless access to resources within the virtual network.
 
-***
+## Considerations
 
-#### **3. Configure Authentication & Conditional Access**
+The architecture deployed is usually driven by an organisation governance policies or security requirement. If your organisation policies does not explicitly states this then my recommendation would be to deploy the first architecture and connect over the public endpoint ensuring all the necessary Authentication and RBAC controls are in place.
 
-*   Assign Bastion access roles via **Entra ID RBAC**:
-    *   `Reader` or `Virtual Machine User Login` for basic access.
-*   Apply **Conditional Access Policy**:
-    *   Require MFA
-    *   Require compliant device
-    *   Require VPN IP range
-*   Integrate with **Access Packages** for JIT access.
+### Cost
 
-***
+Azure Bastions comes in 3 SKUs so do your estimations. It comes at fixed prices so fairly easy to make estimations. See and example below but do have look at the Azure pricing calculator.
 
-#### **4. Session Recording & Storage**
+#### Cost Estimation Example (Monthly)
 
-*   Enable **Session Recording** in Bastion Premium.
-*   Create **Storage Account**:
-    *   Enable encryption (Microsoft-managed keys or CMK if needed).
-    *   Configure **Lifecycle Management** for 7-day retention.
-*   Link Bastion to Storage Account for session logs and video replay.
-
-***
-
-#### **5. File Transfer Policy**
-
-*   Enable **Upload/Download** in Bastion Premium.
-*   Use **Custom RBAC or Entra ID groups**:
-    *   Group A: Upload + Download
-    *   Group B: Upload only
-*   Validate Access Package workflow for these roles.
-
-***
-
-#### **6. Client Access**
-
-*   Enable **Native Client Support**:
-    *   SSH via `az network bastion ssh`
-    *   RDP via `az network bastion rdp`
-*   Enable **Shareable Link**:
-    *   Generate link for engineers to bookmark.
-    *   Ensure link works without portal login (still Entra-authenticated).
-
-***
-
-#### **7. Monitoring & SOC Integration**
-
-*   Enable **Diagnostic Settings** for Bastion:
-    *   Send logs to **Log Analytics Workspace**.
-*   Configure **Azure Monitor Alerts** for:
-    *   Session start/stop
-    *   Failed login attempts
-*   Optional: Integrate with **Sentinel** for SOC visibility.
-
-***
-
-#### **8. Demo Scenarios**
-
-*   Engineer requests access via Access Package → gets role → connects via Bastion.
-*   Show:
-    *   Browser access via Shareable Link
-    *   Native client SSH/RDP
-    *   File upload/download based on role
-    *   Session recording replay from Storage Account
-    *   Conditional Access enforcement (VPN required)
-    *   Monitoring dashboard in Log Analytics
-
-***
-
-### Cost Estimation
-
-**Cost Estimation (Monthly)**
 - Azure Bastion Premium SKU: ~$0.45/hour → ~$324/month
 - Storage Account (100 GB): ~$1.80/month
 - Log Analytics (1 GB/day): ~$69/month
@@ -142,6 +58,16 @@ To learn more about Azure bastion, check out the official documentation [here](h
 *Note: Actual costs may vary based on usage and region.*
 <br>*Refer to [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) for detailed estimates.*
 
-### **Next Steps**
+Note that additional capabilities like session recording, logging etc can also add to overall cost.
 
-Check out the project code on this [GitHub Repository](https://github.com/madjava/azure-bastion.git) to get started with deploying your own Azure Bastion PoC with these advanced capabilities!
+### Security Policies
+
+As mentioned previously this may influence the pattern your organisation adopts so do have a chat with the security folks or Architect on the project.
+
+## What Next?
+
+As always, further learning and research. I have a blog post you may want to read up on if interested in Azure Bastion for your organisation. There are great resources out there as well, a quick google search should point some out but always starts with the Microsoft official documentation.
+
+- [JumpBox vs JumpServer vs Azure Bastion – What’s the Difference?](http://xxx)
+- [Azure Bastion Official documentation](https://learn.microsoft.com/en-us/azure/bastion/)
+- [Azure Bastion Premium - Private deployment and session recording!](https://www.youtube.com/watch?v=zMplc7YpuQY)
