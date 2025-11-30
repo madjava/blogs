@@ -21,24 +21,24 @@ The project code explores both capabilities of Azure Bastion.
 
 In both situations connection is still over a TLS connection. Organisation needs or governance requirements may prompt the need for one option over another. We explore both, and you would be able to deploy one or the other by configuration variables set in the available `tfvars` file in the repo.
 
-### Architecture Diagram - Over Public Connection
+#### Over Public Connection
 
 <details>
-<summary>Public endpoint Architecture Diagram</summary>
+<summary>Public endpoint architecture diagram</summary>
 
-<img src="{{ site.url }}/blogs/assets/images/azure/blog-azure-bastion-public.png" alt="Secure Ingress via Azure Bsstion public endpoint architecture diagram" />
+<img src="{{ site.url }}/blogs/assets/images/azure/blog-azure-bastion-public.png" alt="Secure Ingress via Azure Bastion public endpoint architecture diagram" />
 </details>
-
+<br/>
 In this architecture, users connect to Azure Bastion through its public IP endpoint, where all required authentication and authorization controls—such as Azure AD, MFA, and RBAC—can be applied before access is granted. This secure, identity-driven approach eliminates the need for a VPN, removing the overhead of provisioning and managing additional infrastructure to reach resources within the virtual network.
 
-### Architecture Diagram - Over Private Connection
+#### Over Private Connection
 
 <details>
-<summary>Public endpoint Architecture Diagram</summary>
+<summary>Private endpoint architecture diagram</summary>
 
-<img src="{{ site.url }}/blogs/assets/images/azure/blog-azure-bastion-private.png" alt="Secure Ingress via Azure Bsstion public endpoint architecture diagram" />
+<img src="{{ site.url }}/blogs/assets/images/azure/blog-azure-bastion-private.png" alt="Secure Ingress via Azure Bastion private endpoint architecture diagram" />
 </details>
-
+<br/>
 In this architecture, users connect to Azure Bastion through a private endpoint, accessed via an existing VPN connection into the environment. This ensures all administrative traffic remains on the internal network and never touches the public internet. Azure AD, MFA, and RBAC can be enforced at the control plane, providing strong identity-based authentication before access is granted. Although a VPN, or some means unto the private network is required for private access, this model significantly enhances security by eliminating public exposure while maintaining seamless access to resources within the virtual network.
 
 ## Considerations
@@ -58,16 +58,15 @@ Azure Bastions comes in 3 SKUs so do your estimations. It comes at fixed prices 
 *Note: Actual costs may vary based on usage and region.*
 <br>*Refer to [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) for detailed estimates.*
 
-Note that additional capabilities like session recording, logging etc can also add to overall cost.
 
 ### Security Policies
 
-As mentioned previously this may influence the pattern your organisation adopts so do have a chat with the security folks or Architect on the project.
+As mentioned previously this may influence the pattern your organisation adopts so do have a chat with the security folks or the Architects on the project.
 
 ## What Next?
 
 As always, further learning and research. I have a blog post you may want to read up on if interested in Azure Bastion for your organisation. There are great resources out there as well, a quick google search should point some out but always starts with the Microsoft official documentation.
 
-- [JumpBox vs JumpServer vs Azure Bastion – What’s the Difference?](http://xxx)
+- [JumpBox vs JumpServer vs Azure Bastion – What’s the Difference?]({{ site.url }}/blogs/projects/azure-bastion-capabilities/)
 - [Azure Bastion Official documentation](https://learn.microsoft.com/en-us/azure/bastion/)
 - [Azure Bastion Premium - Private deployment and session recording!](https://www.youtube.com/watch?v=zMplc7YpuQY)
