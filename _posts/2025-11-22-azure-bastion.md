@@ -102,7 +102,7 @@ For most Azure-centric environments, Bastion offers a clean and secure experienc
 ## Quick Comparison Table
 
 | Feature | JumpBox | JumpServer | Azure Bastion |
-|---|---|---|---|
+|:------|:------:|:------:|:------:|
 | **Type** | Single VM gateway | Access management platform | Fully managed service |
 | **Best For** | Small environments | Large enterprise teams | Cloud-native secure access |
 | **Setup Complexity** | Low | Medium–High | Very low |
