@@ -43,8 +43,9 @@ exclude:
   - Gemfile.lock
   - node_modules
   - update_boostrap.sh
-  - "content-todos.todo.txt"
-  - "content-ideas.todo.txt"
+  - content-todos.todo.txt
+  - content-ideas.todo.txt
+  - googleb06c3f6f4a4f5e4.html
 collections:
   projects:
     output: true
