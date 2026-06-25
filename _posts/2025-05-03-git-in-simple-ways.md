@@ -4,6 +4,7 @@ author: Felix Eyetan
 title: Simple ways to use Git
 level: Beginner
 is_blog: true
+tags: [DevOps]
 ---
 
 ### Assumptions

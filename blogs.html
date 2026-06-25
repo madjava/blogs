@@ -3,25 +3,75 @@ layout: home
 title: Blogs
 ---
 
-<div class="h-100 d-flex flex-column align-items-center justify-content-center mt-5 pt-5">
-  <div class="flex-column">
-    <image src="./assets/images/event.png" width="150px" alt="Felix Eyetan" class="animated">
-  </div>
-  <div class="flex-column mt-4 text-center">
-    <h1 class="title">Felix Eyetan</h1>
-  </div>
-  <div class="flex-column mt-2 text-center description">
-    <span>Architecture</span> | <span>IaC</span> | <span>Team Work</span> 
-  </div>
-  <div class="flex-row mt-3 text-center">
-    <div class="d-inline m-2"><a href="{{ site.linkedin_url }}" target="_blank" class="fa fa-linkedin"></a></div>
-    <div class="d-inline m-2"><a href="{{ site.github_url }}" target="_blank" class="fa fa-github"></a></div>
-  </div>
-  <div class="container mt-4 mb-4 text-left" style="width: 50%;">
-      {% for post in site.posts %}
-        <div class="row mt-1 mb-1"><a href="/blogs{{ post.url }}">{{ post.title }}</a></div>
-      {% endfor %}
-  </div>
-  
-</div>
+<div class="fe-blog-listing">
 
+  <!-- FEATURED POST -->
+  {% assign featured = site.posts.first %}
+  <a href="/blogs{{ featured.url }}" class="fe-featured-card">
+    <div class="fe-featured-inner">
+      <div class="fe-featured-content">
+        <div class="fe-tags-row">
+          <span class="fe-tag fe-tag--featured">Featured</span>
+          {% if featured.tags %}
+            {% for tag in featured.tags limit:2 %}
+              <span class="fe-tag fe-tag--{{ tag | slugify }}">{{ tag }}</span>
+            {% endfor %}
+          {% endif %}
+        </div>
+        <h2 class="fe-featured-title">{{ featured.title }}</h2>
+        <p class="fe-featured-excerpt">{{ featured.excerpt | strip_html | truncatewords: 28 }}</p>
+        <div class="fe-meta">
+          <span class="fe-meta-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            {{ featured.content | number_of_words | divided_by: 200 | plus: 1 }} min read
+          </span>
+          <span class="fe-meta-item">{{ featured.date | date: "%d %b %Y" }}</span>
+        </div>
+      </div>
+      <div class="fe-featured-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+    </div>
+  </a>
+
+  <!-- POST LIST -->
+  <div class="fe-post-list" id="fe-list">
+    {% for post in site.posts offset:1 %}
+      <a href="/blogs{{ post.url }}" class="fe-post-row">
+        <div class="fe-post-row-main">
+          <div class="fe-post-row-top">
+            {% if post.tags.first %}
+              <span class="fe-tag fe-tag--{{ post.tags.first | slugify }}">{{ post.tags.first }}</span>
+            {% endif %}
+            <span class="fe-meta-item">{{ post.date | date: "%d %b %Y" }}</span>
+          </div>
+          <h3 class="fe-post-row-title">{{ post.title }}</h3>
+          <p class="fe-post-row-excerpt">{{ post.excerpt | strip_html | truncatewords: 22 }}</p>
+        </div>
+        <div class="fe-post-row-aside">
+          <span class="fe-meta-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min read
+          </span>
+          <svg class="fe-post-row-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+
+  {% include pagination.html %}
+
+  <!-- TOPIC FILTER -->
+  <div class="fe-topics">
+    <p class="fe-topics-label">Browse by topic</p>
+    <div class="fe-topics-row">
+      <span class="fe-tag fe-tag--azure">Azure</span>
+      <span class="fe-tag fe-tag--security">Security</span>
+      <span class="fe-tag fe-tag--platform-eng">Platform eng</span>
+      <span class="fe-tag fe-tag--finops">FinOps</span>
+      <span class="fe-tag fe-tag--ai">AI</span>
+      <span class="fe-tag fe-tag--iac">IaC</span>
+    </div>
+  </div>
+
+</div>

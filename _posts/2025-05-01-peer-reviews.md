@@ -4,6 +4,7 @@ author: Felix Eyetan
 title: Peer reviews and why we need them
 level: Beginner
 is_blog: true
+tags: [DevOps]
 ---
 
 Code reviews are methodical assessments of code designed to identify bugs or errors, increase code quality, and help developers and engineers learn the source code.

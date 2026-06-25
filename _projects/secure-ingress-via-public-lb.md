@@ -6,6 +6,7 @@ level: Intermediate
 description: "Securing ingress traffic via Public load balancer and Palo Alto firewall using a hub-and-spoke architecture on Azure."
 category: azure
 is_blog: false
+tags: [Azure, Security]
 ---
 
 ## Project Summary

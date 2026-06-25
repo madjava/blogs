@@ -4,6 +4,7 @@ author: Felix Eyetan
 title: Team Collaboration
 level: Intermediate
 is_blog: true
+tags: [Platform Eng, Leadership]
 ---
 
 A while back, I gave a talk at our team's Away Day on the topic of team collaboration in engineering. It was part of a broader discussion we were having as a platform operations team about how we work together, and more importantly, how we *should* work together.

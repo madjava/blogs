@@ -4,6 +4,7 @@ author: Felix Eyetan
 title: Managing TLS Policies in Azure Front Door with Terraform and AzAPI
 level: Intermediate
 is_blog: true
+tags: [Azure, IaC]
 ---
 
 Azure Front Door supports end-to-end TLS encryption. When you add a custom domain to Azure Front Door, HTTPS is mandatory, and you must define a TLS policy that controls the TLS protocol version and cipher suites during the handshake.

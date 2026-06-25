@@ -4,8 +4,23 @@ layout: home
 
 <div class="h-100 d-flex flex-column align-items-center justify-content-center mt-5 pt-5">
   <div class="flex-column">
-    <image src="./assets/images/event.png" width="150px" alt="Felix Eyetan" class="animated">
+    <img id="fe-hero-img" src="./assets/images/event.png" width="150px" alt="Felix Eyetan" class="animated">
   </div>
+  <script>
+    (function () {
+      var imgs = ['./assets/images/event.png', './assets/images/git-profile-882x882.png'];
+      var key  = 'fe_hero_img';
+      var stored = sessionStorage.getItem(key);
+      var src;
+      if (stored) {
+        src = stored;
+      } else {
+        src = imgs[Math.floor(Math.random() * imgs.length)];
+        sessionStorage.setItem(key, src);
+      }
+      document.getElementById('fe-hero-img').src = src;
+    }());
+  </script>
   <div class="flex-column mt-4 text-center">
     <h1 class="title">Felix Eyetan</h1>
   </div>
@@ -13,8 +28,8 @@ layout: home
     <span>Architecture</span> | <span>IaC</span> | <span>Team Work</span> 
   </div>
   <div class="flex-row mt-3 text-center">
-    <div class="d-inline m-2"><a href="{{ site.linkedin_url }}" target="_blank" class="fa fa-linkedin"></a></div>
-    <div class="d-inline m-2"><a href="{{ site.github_url }}" target="_blank" class="fa fa-github"></a></div>
+    <div class="d-inline m-2"><a href="{{ site.linkedin_url }}" target="_blank" class="fa-brands fa-linkedin"></a></div>
+    <div class="d-inline m-2"><a href="{{ site.github_url }}" target="_blank" class="fa-brands fa-github"></a></div>
   </div>
   <div class="flex-column mt-4 mb-4 text-center" style="width: 50%;">
     <p>{{- site.long_description | escape -}}</p>

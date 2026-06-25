@@ -1,35 +1,54 @@
 ---
 layout: default
 ---
-<article>
+<article class="fe-post-article">
 
-  <header>
-    <h1>{{ page.title | escape }}</h1>
-    <p class="text-muted">
-      <time datetime="{{ page.date | date_to_xmlschema }}">
-        {%- assign date_format = "%b %-d, %Y" -%}
+  <header class="fe-post-header">
+    {% if page.tags %}
+    <div class="fe-tags-row">
+      {% for tag in page.tags %}
+        <span class="fe-tag fe-tag--{{ tag | slugify }}">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <h1 class="fe-post-article-title">{{ page.title | escape }}</h1>
+    <div class="fe-post-article-meta">
+      <div class="fe-author-chip">
+        <div class="fe-author-avatar">FE</div>
+        <span>{{ page.author }}</span>
+      </div>
+      <span class="fe-meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        {%- assign date_format = "%d %b %Y" -%}
         {{ page.date | date: date_format }}
-      </time>
-      {%- if page.author -%}
-        • {{ page.author }}
-      {%- endif -%}
-    </p>
+      </span>
+      <span class="fe-meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        {{ content | number_of_words | divided_by: 200 | plus: 1 }} min read
+      </span>
+    </div>
   </header>
 
-  <section>
+  <section class="fe-post-body">
     {{ content }}
   </section>
 
-  <!-- <section>
-    <h2>Related Posts</h2>
-    <ul>
-      {% for post in site.posts %}
-        {% if post.categories contains page.categories[0] and post.title != page.title %}
-          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-    </section> -->
-
+  <!-- PREV / NEXT -->
+  <nav class="fe-post-nav" aria-label="Post navigation">
+    {% if page.previous.url %}
+    <a href="/blogs{{ page.previous.url }}" class="fe-post-nav-item">
+      <span class="fe-post-nav-label">← Previous</span>
+      <span class="fe-post-nav-title">{{ page.previous.title }}</span>
+    </a>
+    {% else %}
+    <div></div>
+    {% endif %}
+    {% if page.next.url %}
+    <a href="/blogs{{ page.next.url }}" class="fe-post-nav-item fe-post-nav-item--right">
+      <span class="fe-post-nav-label">Next →</span>
+      <span class="fe-post-nav-title">{{ page.next.title }}</span>
+    </a>
+    {% endif %}
+  </nav>
 
 </article>

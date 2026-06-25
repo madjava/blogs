@@ -6,6 +6,7 @@ level: Intermediate
 description: "Deploying a Palo Alto CNFGW firewall in Azure, Hub Spoke deployment and Panorama managed"
 category: azure
 is_blog: false
+tags: [Azure, Security]
 ---
 This project will work us through deploying Palo Alto in Azure. We'll be deploying this using the Hub and Spoke model and also managing policies via Panorama.
 
