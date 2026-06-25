@@ -4,6 +4,7 @@ author: Felix Eyetan
 title: Azure Frontdoor security capabilities
 level: Intermediate
 is_blog: true
+tags: [Azure, Security]
 ---
 
 While Azure Front Door's WAF, DDoS protection, and SSL termination provide **excellent foundational security**, they may not be sufficient **alone** for many enterprise scenarios.

@@ -6,6 +6,7 @@ level: Intermediate
 description: "Deploying a Bastion host, premium SKU in Azure with file transfer capabilities, RBAC and Native client support"
 category: azure
 is_blog: false
+tags: [Azure, Security]
 ---
 
 This project explores some of the Azure Bastion.<br>

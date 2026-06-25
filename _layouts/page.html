@@ -1,13 +1,34 @@
 ---
 layout: default
 ---
-<article>
+<article class="fe-post-article">
 
-  <header>
-    <h1>{{ page.title | escape }}</h1>
+  <header class="fe-post-header">
+    {% if page.tags %}
+    <div class="fe-tags-row">
+      {% for tag in page.tags %}
+        <span class="fe-tag fe-tag--{{ tag | slugify }}">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <h1 class="fe-post-article-title">{{ page.title | escape }}</h1>
+    {% if page.description %}
+    <p style="font-size: 0.95rem; color: #555; margin: 0 0 0.75rem;">{{ page.description }}</p>
+    {% endif %}
+    <div class="fe-post-article-meta">
+      {% if page.author %}
+      <div class="fe-author-chip">
+        <div class="fe-author-avatar">FE</div>
+        <span>{{ page.author }}</span>
+      </div>
+      {% endif %}
+      {% if page.level %}
+      <span class="fe-tag fe-tag--{{ page.level | downcase }}">{{ page.level }}</span>
+      {% endif %}
+    </div>
   </header>
 
-  <section>
+  <section class="fe-post-body">
     {{ content }}
   </section>
 

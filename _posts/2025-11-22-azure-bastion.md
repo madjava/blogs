@@ -4,6 +4,7 @@ author: Felix Eyetan
 title: JumpBox vs JumpServer vs Azure Bastion – What’s the Difference?
 level: Beginner
 is_blog: true
+tags: [Azure, Security]
 ---
 
 When you need secure remote access to virtual machines (VMs) in Azure, or any corporate network in general, you’ll quickly come across terms like **JumpBox**, **JumpServer**, and **Azure Bastion**. They all provide secure access to private networks, but they work differently and suit different environments.

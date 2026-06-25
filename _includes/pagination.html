@@ -1,0 +1,78 @@
+<nav class="fe-pagination" id="fe-pagination" aria-label="Post pagination"></nav>
+
+<script>
+(function () {
+  var PER_PAGE = 5;
+  var list     = document.getElementById('fe-list');
+  var nav      = document.getElementById('fe-pagination');
+  var topicNav = document.querySelector('.fe-topics');
+  if (!list || !nav) return;
+
+  var allRows    = Array.from(list.querySelectorAll('.fe-post-row'));
+  var activeRows = allRows;
+  var current    = 0;
+
+  // ── Tag filtering ──────────────────────────────────────────────────────────
+  if (topicNav) {
+    topicNav.querySelectorAll('.fe-tag').forEach(function (pill) {
+      pill.style.cursor = 'pointer';
+      pill.addEventListener('click', function () {
+        var selected = pill.textContent.trim().toLowerCase();
+
+        // toggle: clicking active filter clears it
+        if (pill.classList.contains('fe-tag--active')) {
+          topicNav.querySelectorAll('.fe-tag').forEach(function (p) { p.classList.remove('fe-tag--active'); });
+          activeRows = allRows;
+        } else {
+          topicNav.querySelectorAll('.fe-tag').forEach(function (p) { p.classList.remove('fe-tag--active'); });
+          pill.classList.add('fe-tag--active');
+          activeRows = allRows.filter(function (row) {
+            var rowTags = Array.from(row.querySelectorAll('.fe-tag')).map(function (t) {
+              return t.textContent.trim().toLowerCase();
+            });
+            return rowTags.some(function (t) { return t === selected; });
+          });
+        }
+        show(0);
+      });
+    });
+  }
+
+  // ── Pagination ─────────────────────────────────────────────────────────────
+  function show(page) {
+    current = page;
+    var pages = Math.ceil(activeRows.length / PER_PAGE);
+
+    allRows.forEach(function (row) { row.style.display = 'none'; });
+    activeRows.forEach(function (row, i) {
+      row.style.display = (i >= page * PER_PAGE && i < (page + 1) * PER_PAGE) ? '' : 'none';
+    });
+
+    nav.innerHTML = '';
+    if (pages <= 1) {
+      nav.style.display = 'none';
+      return;
+    }
+    nav.style.display = '';
+
+    var prev = document.createElement('button');
+    prev.textContent = '← Prev';
+    prev.disabled = current === 0;
+    prev.addEventListener('click', function () { show(current - 1); window.scrollTo(0, list.offsetTop - 80); });
+    nav.appendChild(prev);
+
+    var info = document.createElement('span');
+    info.className = 'fe-pagination-info';
+    info.textContent = 'Page ' + (current + 1) + ' of ' + pages;
+    nav.appendChild(info);
+
+    var next = document.createElement('button');
+    next.textContent = 'Next →';
+    next.disabled = current === pages - 1;
+    next.addEventListener('click', function () { show(current + 1); window.scrollTo(0, list.offsetTop - 80); });
+    nav.appendChild(next);
+  }
+
+  show(0);
+}());
+</script>
